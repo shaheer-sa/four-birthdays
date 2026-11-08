@@ -1,0 +1,3 @@
+Put your 8 photos here with these exact names (JPG, about 1200-1600px on the long side):
+spring-1.jpg, spring-2.jpg, monsoon-1.jpg, monsoon-2.jpg, summer-1.jpg, summer-2.jpg, autumn-1.jpg, autumn-2.jpg
+See README.md for details. You can delete this file.

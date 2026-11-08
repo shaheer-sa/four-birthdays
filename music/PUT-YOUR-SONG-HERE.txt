@@ -1,0 +1,2 @@
+Optional: put your own song here (e.g. our-song.mp3) and set  music: "music/our-song.mp3"  in config.js.
+Leave config.music as "" to use the built-in soft piano. You can delete this file.
