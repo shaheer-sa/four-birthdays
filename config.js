@@ -1,7 +1,7 @@
 /* =====================================================================
    EVERYTHING PERSONAL LIVES IN THIS FILE.
    Change any text inside the quotes. Keep the quotes and the commas.
-   Everything below is sample text — replace it with your own story.
+   Everything below is sample text. Replace it with your own.
    ===================================================================== */
 
 const HER_NAME = "Alex";   // the birthday person (shown on many screens)

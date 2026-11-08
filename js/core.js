@@ -5,7 +5,7 @@ window.DEV = DEV;
 const G = window.GIFT || {};
 const HER = G.her || 'my love';
 const LINES = G.lines || {};
-/* nicknames from config.js: [{ text, meaning }] — used by the word rose and the heart of languages */
+/* nicknames from config.js, used by the rose and the heart */
 const NICKS = (G.nicknames || []).filter(n => n && n.text).map(n => ({ text: String(n.text), meaning: n.meaning || 'just for you' }));
 const IS_RTL = t => /[\u0590-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/.test(t);
 const $ = (s, r = document) => r.querySelector(s);
@@ -262,7 +262,7 @@ const Sound = {
     const md = c.createGain(); md.gain.value = .6; this.music.connect(md); md.connect(this.out);
     const mv = c.createGain(); mv.gain.value = .85; this.music.connect(mv); mv.connect(this.verb);
 
-    // Dedicated clean bus for custom music (without synthetic heavy reverb)
+    // separate bus for a custom song (no reverb)
     this.customGain = c.createGain();
     this.customGain.gain.value = 0;
     this.customGain.connect(this.out);
@@ -302,7 +302,7 @@ const Sound = {
       this.customGain.connect(this.out);
     }
 
-    // Support both .mp3 and .mpeg interchangeably
+    // try both .mp3 and .mpeg
     const urls = [url];
     if (/\.mp3$/i.test(url)) urls.push(url.replace(/\.mp3$/i, '.mpeg'));
     else if (/\.mpeg$/i.test(url)) urls.push(url.replace(/\.mpeg$/i, '.mp3'));
@@ -343,7 +343,7 @@ const Sound = {
     const sr = audioBuf.sampleRate;
     const len = audioBuf.length;
 
-    // Detect non-silent head and tail to eliminate dead air gaps
+    // trim silence at the start and end
     let startSec = 0;
     for (let i = 0; i < len; i++) {
       if (Math.abs(ch0[i]) > 0.008 || Math.abs(ch1[i]) > 0.008) {
@@ -360,7 +360,7 @@ const Sound = {
     }
 
     const totalDur = endSec - startSec;
-    // Crossfade duration: 3.5 seconds (or at most 25% of total track duration)
+    // crossfade 3.5s (max 25% of the track)
     const xfade = Math.min(3.5, totalDur * 0.25);
     const cycleLen = Math.max(5, totalDur - xfade);
 
@@ -390,7 +390,7 @@ const Sound = {
         passGain.gain.linearRampToValueAtTime(1, passStart + xfade);
       }
 
-      // Smooth fade-out at tail
+      // fade out at the end
       passGain.gain.setValueAtTime(1, passEnd - xfade);
       passGain.gain.linearRampToValueAtTime(0, passEnd);
 
@@ -399,7 +399,7 @@ const Sound = {
 
       nextStartTime += cycleLen;
 
-      // Queue next pass 5 seconds before it is needed
+      // schedule the next loop about 5s ahead
       const timeUntilSchedule = Math.max(500, (nextStartTime - now - 5) * 1000);
       this.trackTimer = setTimeout(schedulePass, timeUntilSchedule);
     };
@@ -685,7 +685,7 @@ addEventListener('pointermove', e => {
   FX.add({ x, y, vx: rand(-20, 20), vy: rand(-30, 10), life: rand(.4, .8), size: rand(2, 4.5), color: Math.random() < .6 ? '#ffd88a' : '#ffb3c8', type: 'spark', fadeIn: .02 });
 }, { passive: true });
 
-/* ---------- screen wake lock, android back protection & tab visibility ---------- */
+/* ---------- wake lock, back button, tab visibility ---------- */
 let wakeLock = null;
 async function requestWakeLock() {
   if (!('wakeLock' in navigator) || sessionStorage.getItem('gift_unlocked') !== '1' || document.hidden) return;

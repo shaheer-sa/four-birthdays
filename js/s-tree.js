@@ -1,5 +1,5 @@
 'use strict';
-/* ============ 9 · HEART TREE FINALE (from birthday-gift.html) + promise coupons ============ */
+/* ============ 9 · HEART TREE + promise coupons ============ */
 (() => {
   const D = App.scene('tree', { tone: 'light' });
   const tc = $('#treeCv'), sheet = $('#cpSheet'), list = $('#cpList'), secret = $('#secret');
@@ -30,7 +30,7 @@
     T.cy = portrait ? H * .6 : H * .44;
     D.el.style.setProperty('--tx', (T.cx / W * 100) + '%');
 
-    // Create radial ground-glow gradient once per layout (B4)
+    // ground glow, created once per layout
     T.groundGrad = g.createRadialGradient(T.cx, H + T.s * .2, 0, T.cx, H + T.s * .2, T.s * 1.4);
     T.groundGrad.addColorStop(0, 'rgba(255,190,190,.35)');
     T.groundGrad.addColorStop(1, 'rgba(255,190,190,0)');
@@ -124,7 +124,7 @@
     const t = REDUCE ? 1e6 : now - T.t0, s = T.s, W = VP.W, H = VP.H;
     g.setTransform(VP.DPR, 0, 0, VP.DPR, 0, 0); g.clearRect(0, 0, W, H);
 
-    // ground glow (cached gradient)
+    // ground glow
     if (T.groundGrad) {
       g.fillStyle = T.groundGrad; g.fillRect(0, 0, W, H);
     }
@@ -219,7 +219,7 @@
   });
   secret.addEventListener('click', () => { gsap.to('.secret-card', { scale: .8, opacity: 0, duration: .3, onComplete: () => { secret.hidden = true; } }); });
 
-  /* promise coupons with two-step confirmation (A6) */
+  /* promise coupons (redeem asks to confirm) */
   const KEY = 'gift-coupons';
   const used = () => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } };
   const markUsed = i => { try { const u = used(); if (!u.includes(i)) u.push(i); localStorage.setItem(KEY, JSON.stringify(u)); } catch (e) { /* storage blocked */ } };
@@ -285,7 +285,7 @@
   $('#cpClose').addEventListener('click', closeSheet);
   sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
 
-  /* once more (replay) bug fix (A5) */
+  /* once more: start again from the cupid screen */
   $('#replay').addEventListener('click', e => {
     e.stopPropagation();
     App.keys = 0;

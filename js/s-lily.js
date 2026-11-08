@@ -1,5 +1,5 @@
 'use strict';
-/* ============ 6 · LILY BOUQUET (port of lily_bloom.py) ============ */
+/* ============ 6 · LILY BOUQUET ============ */
 (() => {
   const D = App.scene('lily', { tone: 'dark' });
   const cv = $('#lilyCv');

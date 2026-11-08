@@ -1,154 +1,150 @@
-# Four Birthdays 🌹
-**An interactive birthday gift website you can make your own: no coding needed, just edit one file.**
+# Four Birthdays
 
-![Preview of the screens](.github/preview.jpg)
+An interactive birthday gift website. You edit one file, add your photos, and send the link.
 
-Ten animated screens that open one after another like a gift: a secret lock, your story told in four seasons with your photos, a jar of reasons, birthday candles you can actually blow out, a letter that writes itself, and a final heart tree with promise coupons. It's made for phones first and runs in any modern browser.
+![Screens](.github/preview.jpg)
 
----
+The site is a sequence of ten animated screens: a code lock, a rose made of words, your story in four seasons with your photos, a jar of reasons, birthday candles that can be blown out, a lily bouquet, a letter that writes itself, a heart of languages, and a heart tree with promise coupons at the end. It is designed for phones but works in any modern browser.
 
-## ✨ What's inside
+## Screens
 
-| # | Screen | What happens |
+| # | Screen | Description |
 |---|---|---|
-| 0 | **Lock** | They type a secret code. Wrong tries give playful hints that get easier. |
-| 1 | **Cupid** | A tap fires an arrow into a heart. |
-| 2 | **Word rose** | A rose grows out of "I love you" in dozens of languages (plus your nicknames). Tap a word to see its language. |
-| 3 | **Our story** | Four chapters (spring → monsoon → summer → autumn) with draggable polaroids of your photos. Each chapter hides a golden key. |
-| 4 | **Jar of reasons** | Tap or shake the phone to pull out a reason you love them. |
-| 5 | **Make a wish** | Light four candles, one memory each, then blow them out for real (microphone) or press and hold. |
-| 6 | **Lily bouquet** | Lilies grow and sway with your finger. Tap to grow more. |
-| 7 | **The letter** | The four keys unlock an envelope, and your letter writes itself word by word. |
-| 8 | **Heart of languages** | A heart fills with "I love you" in about 100 languages, then lifts into 3D. |
-| 9 | **Heart tree** | A tree grows hearts. Includes four promise coupons and a hidden secret message. |
+| 0 | Lock | Enter a code to open the gift. Wrong attempts show hints that get easier each time. |
+| 1 | Cupid | Tap to shoot an arrow into the heart. |
+| 2 | Word rose | A rose built from "I love you" in many languages and your nicknames. Tapping a word shows its language. |
+| 3 | Our story | Four chapters (spring, monsoon, summer, autumn) with draggable photos. Each chapter hides a golden key. |
+| 4 | Jar of reasons | Tap the jar or shake the phone to take out a reason. |
+| 5 | Make a wish | Light four candles, each with a memory, then blow them out (microphone) or press and hold. |
+| 6 | Lily bouquet | Lilies grow and sway with your finger. Tap to grow another. |
+| 7 | The letter | The four keys unlock an envelope and the letter writes itself. |
+| 8 | Heart of languages | A heart fills with "I love you" in about 100 languages, then turns into a 3D heart. |
+| 9 | Heart tree | A tree of hearts, four promise coupons, and a hidden message. |
 
-Also included: background music (built-in soft piano, or your own song), sound effects, vibration, the screen stays awake while it plays, protection against accidental back-swipes, link-preview image and app icons.
+It also has background music (a generated piano by default, or your own song), sound effects, vibration, and a link preview image with app icons. The screen stays on while the gift is open, and a single accidental back swipe won't close it.
 
----
+## Setup
 
-## 🚀 Quick start
+### 1. Get a copy
 
-### 1. Get your own copy
-- **Recommended:** click **Use this template → Create a new repository** and set it to **Private** (your photos and letter are personal).
-- Or click **Code → Download ZIP** and unzip it.
+Click **Use this template** and create a **private** repository, or download the ZIP from **Code > Download ZIP**.
 
-### 2. Make it yours: edit `config.js`
-Open `config.js` in any text editor (Notepad, VS Code…). **Everything personal lives in this one file.**
-Only change the text inside the quotes `" "` and keep the commas.
+### 2. Edit `config.js`
 
-| Setting | What it changes |
+All the personal content is in `config.js`. Open it in any text editor and change the text inside the quotes. Keep the quotes and commas as they are.
+
+| Setting | What it controls |
 |---|---|
-| `HER_NAME`, `MY_NAME` | Their name and yours (used on many screens) |
-| `code` | The lock-screen code (numbers only, any length) |
-| `lockFirst`, `lockHints`, `lockEmpty` | Messages shown for wrong or empty codes. **Update the hints if you change the code!** |
-| `music` | `""` = built-in piano, or `"music/your-song.mp3"` |
-| `whatsapp` | Your number with country code, digits only (e.g. `"15551234567"`). Lets them tell you when they redeem a coupon. `""` hides it. |
-| `lines` | Short sentences on each screen |
-| `nicknames` | Your pet names. They appear in the rose and the 3D heart. |
-| `chapters` | Your story: titles, text, photo captions, the note on the back of each photo, and which photo hides the key |
-| `reasons` | The jar of reasons (add as many as you like) |
-| `birthdays` | One memory per candle (4) |
-| `letter` | Your letter: greeting, paragraphs, an optional right-to-left line (Urdu/Arabic/Persian), sign-off, signature |
+| `HER_NAME`, `MY_NAME` | The recipient's name and yours |
+| `code` | Lock screen code (digits only, any length) |
+| `lockFirst`, `lockHints`, `lockEmpty` | Messages for wrong or empty codes. Update the hints if you change the code. |
+| `music` | `""` for the built-in piano, or a path like `"music/our-song.mp3"` |
+| `whatsapp` | Your number with country code, digits only (e.g. `"15551234567"`). Shows a WhatsApp link when a coupon is redeemed. Leave `""` to hide it. |
+| `lines` | Short lines of text on each screen |
+| `nicknames` | Pet names that appear in the rose and the 3D heart |
+| `chapters` | The story: titles, text, photo captions, the note on the back of each photo, and which photo hides the key |
+| `reasons` | Reasons in the jar (any number) |
+| `birthdays` | One memory for each of the four candles |
+| `letter` | Greeting, paragraphs, an optional right-to-left line (Urdu, Arabic, Persian), sign-off and signature |
 | `couponsIntro`, `coupons` | The four promise coupons |
-| `secret` | The hidden message (found by tapping their name 3 times on the last screen) |
+| `secret` | Hidden message, shown after tapping the name three times on the last screen |
 
-### 3. Add your photos
-Put **8 photos** in the `photos` folder with **exactly** these names:
+### 3. Add photos
 
-| File | Where it shows |
+Put eight photos in the `photos` folder with these exact names:
+
+| File | Used in |
 |---|---|
-| `spring-1.jpg`, `spring-2.jpg` | Chapter 1 · Spring |
-| `monsoon-1.jpg` | Chapter 2 · the rainy window they wipe clean |
-| `monsoon-2.jpg` | Chapter 2 · polaroid |
-| `summer-1.jpg`, `summer-2.jpg` | Chapter 3 · Summer |
-| `autumn-1.jpg`, `autumn-2.jpg` | Chapter 4 · Autumn |
+| `spring-1.jpg`, `spring-2.jpg` | Chapter 1, spring |
+| `monsoon-1.jpg` | Chapter 2, the rainy window |
+| `monsoon-2.jpg` | Chapter 2, photo |
+| `summer-1.jpg`, `summer-2.jpg` | Chapter 3, summer |
+| `autumn-1.jpg`, `autumn-2.jpg` | Chapter 4, autumn |
 
-Tips:
-- Names are **case-sensitive** online: `Spring-1.jpg` will not work.
-- Use JPG and resize to about **1200–1600 px** on the long side so it loads fast on phones.
-- iPhone **.HEIC** photos must be converted to JPG first.
-- A missing photo shows a soft placeholder with its file name, so you can see what's left.
-- Want a different number of photos in a chapter? Add or remove `{ src: ..., caption: ..., note: ... }` lines in `config.js`.
+- File names are case-sensitive once the site is online, so `Spring-1.jpg` won't load.
+- JPG resized to about 1200 to 1600 px on the long side keeps loading fast on phones.
+- Convert iPhone HEIC photos to JPG first.
+- A missing photo shows a placeholder with its file name.
+- To use a different number of photos in a chapter, add or remove entries in `config.js`.
 
-### 4. (Optional) Add your song
-Put an MP3 in the `music` folder, e.g. `music/our-song.mp3`, then set `music: "music/our-song.mp3"` in `config.js`. The song loops seamlessly with a crossfade, and short songs work too.
+### 4. Add music (optional)
 
-### 5. Test it on your computer
-Run a tiny local web server inside the folder (needed for music and some features):
+Put an MP3 in the `music` folder and set `music: "music/your-song.mp3"` in `config.js`. The song loops with a crossfade, so short clips work fine.
+
+### 5. Test locally
+
+Start a local server in the folder that contains `index.html`:
 
 ```bash
-# in the folder that contains index.html
 python -m http.server 8080
 ```
-Then open **http://localhost:8080**. (VS Code's *Live Server* extension works too.)
 
-**Shortcut for testing:** on `localhost` you can jump straight to any screen by adding its name to the address and reloading:
-`#cupid` `#rose` `#story` `#jar` `#wish` `#lily` `#letter` `#heart` `#tree`
-These shortcuts are switched off on the live site, so the lock can't be skipped.
+Then open http://localhost:8080. The VS Code Live Server extension also works.
 
-The sample code is **142208**.
+The sample code is `142208`.
 
-### 6. Put it online (free)
+On localhost you can jump directly to a screen by adding its name to the URL and reloading: `#cupid`, `#rose`, `#story`, `#jar`, `#wish`, `#lily`, `#letter`, `#heart`, `#tree`. This doesn't work on the live site, so the lock can't be skipped there.
 
-**Option A: Netlify (easiest, works with private repos)**
-1. Log in at **app.netlify.com** (log in first, or the site expires).
-2. **Add new site → Deploy manually** and drag the whole folder in.
-3. **Site configuration → Change site name** to pick your link, e.g. `happy-birthday-xyz.netlify.app`.
-4. To update later: **Deploys** → drag the folder in again.
+### 6. Deploy
 
-**Option B: GitHub Pages (needs a public repo on a free account)**
-1. In your repo: **Settings → Pages → Source: Deploy from a branch → `main` / `(root)` → Save**.
-2. Your site will be at `https://YOUR-USERNAME.github.io/REPO-NAME/` after a minute.
-3. ⚠️ A public repo means anyone can see your photos and letter. Prefer Netlify for anything personal.
+**Netlify** (works with private repositories)
 
-### 7. Make the link preview work
-Open `index.html` and replace `https://YOUR-SITE.netlify.app/` (in the `og:` and `twitter:` lines near the top) with your real site address, then deploy again. Now the link shows a nice preview card on WhatsApp and other apps.
-You can also change the page title (`<title>…</title>`), and replace `og-image.jpg` (1200×630) and the icons.
+1. Log in at app.netlify.com. Sites dropped without an account are deleted after a while.
+2. Go to **Add new site > Deploy manually** and drag in the folder.
+3. Under **Site configuration > Change site name**, choose your address.
+4. To update the site later, drag the folder in again under **Deploys**.
 
-Before sending, open the link on your own phone and go through every screen once.
+**GitHub Pages** (free accounts need a public repository)
 
----
+1. Go to **Settings > Pages**, set the source to **Deploy from a branch**, choose `main` and `/ (root)`, and save.
+2. The site will be available at `https://USERNAME.github.io/REPO-NAME/`.
 
-## 🔒 Privacy: please read
-- **Everything you deploy is public to anyone who has the link.** That includes your photos, your letter and `config.js`. The lock screen is part of the experience, **not real security**: the hints even reveal the code.
-- So **only send the link to the person it's for**, and choose a site name that doesn't include their full name.
-- Keep your repo **private** if it contains personal photos or text. Git keeps old versions too, so deleting a file later doesn't remove it from the history.
-- Photos from phones often contain **GPS location** in their metadata. Remove it before uploading (most photo editors and online "EXIF remover" tools can do this).
-- The site tells search engines not to index it (`robots.txt`, `noindex`).
+Keep in mind that in a public repository your photos and letter are visible to everyone. Netlify with a private repository is the better choice for personal content.
 
----
+### 7. Link preview
 
-## 💡 Good to know
-- **Candles:** blowing uses the microphone. The phone asks for permission; if they say no, pressing and holding the cake also blows them out.
-- **Jar:** shaking the phone pulls out a reason (some iPhones ask for motion permission first).
-- **Coupons:** redeeming asks for a confirmation and is remembered on their device.
-- **Languages:** a few phrases are written from a **male speaker** or to a **female reader** (e.g. Hindi *करता हूँ*, Urdu *کرتا ہوں*, Hausa *Ina son ki*). Change them in `js/s-heart.js` and `js/s-rose.js` if needed.
-- **The number four** (four chapters, keys, candles and coupons) is built into the design. All the text around it is yours to change.
-- Needs an internet connection (fonts and animation libraries load from a CDN).
+In `index.html`, replace `https://YOUR-SITE.netlify.app/` in the `og:` and `twitter:` tags with your site address and deploy again. Shared links will then show a preview card. You can also change the `<title>`, `og-image.jpg` (1200x630) and the icons.
 
----
+Before sending the link, open it on your own phone and go through every screen once.
 
-## 📁 Files
+## Privacy
+
+- Anyone with the link can see everything on the site, including the photos, the letter and `config.js`. The lock screen is part of the experience, not real protection (the hints give the code away).
+- Only share the link with the person it's meant for, and pick a site name that doesn't contain their full name.
+- Use a private repository for personal photos and text. Git keeps the history, so deleting a file later does not remove it from earlier commits.
+- Photos taken on phones often include GPS location in their metadata. Remove it before uploading.
+- `robots.txt` and the `noindex` header ask search engines not to index the site.
+
+## Notes
+
+- Blowing out the candles uses the microphone. If permission is denied, pressing and holding the cake works instead.
+- Shaking the phone takes a reason from the jar. Some iPhones ask for motion permission first.
+- Redeeming a coupon asks for confirmation and is saved on the recipient's device.
+- Some phrases are written for a male speaker or a female recipient (for example Hindi "करता हूँ", Urdu "کرتا ہوں", Hausa "Ina son ki"). They can be changed in `js/s-heart.js` and `js/s-rose.js`.
+- The structure of four chapters, keys, candles and coupons is fixed. All of the text can be changed.
+- An internet connection is needed for the fonts and animation libraries, which load from a CDN.
+
+## Files
 
 ```
 index.html            page structure and styles
-config.js             ← all your personal content
-js/core.js            shared engine (scenes, particles, sound)
-js/boot.js            start-up
+config.js             all personal content
+js/core.js            scene manager, particles, sound
+js/boot.js            startup
 js/s-*.js             one file per screen
-photos/               ← your photos
-music/                ← your song (optional)
-og-image.jpg          link-preview image
-icon-*.png, manifest  app icons ("Add to Home Screen")
-_headers, robots.txt  hosting and privacy settings
+photos/               your photos
+music/                your song (optional)
+og-image.jpg          link preview image
+icon-*.png, manifest  app icons
+_headers, robots.txt  hosting and indexing settings
 ```
 
----
+## Credits
 
-## 🙏 Credits
-- Animation: [GSAP](https://gsap.com) (loaded from cdnjs, under its own licence)
-- Confetti: [canvas-confetti](https://github.com/catdad/canvas-confetti) (ISC)
-- Fonts: [Google Fonts](https://fonts.google.com) (SIL Open Font License)
+- [GSAP](https://gsap.com) for animation, loaded from cdnjs under its own license
+- [canvas-confetti](https://github.com/catdad/canvas-confetti) (ISC)
+- Fonts from [Google Fonts](https://fonts.google.com) (SIL Open Font License)
 
-## 📄 License
-[MIT](LICENSE) © 2026 shaheer-sa. Free to use, change and share. A star ⭐ is appreciated if it made someone smile.
+## License
+
+[MIT](LICENSE)

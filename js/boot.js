@@ -13,7 +13,7 @@
     requestAnimationFrame(loop);
   }
 
-  // Android address-bar resize jank: ignore height delta < 150px if width unchanged
+  // ignore small height-only resizes (mobile address bar showing/hiding)
   let rz = null, lastW = innerWidth, lastH = innerHeight;
   addEventListener('resize', () => {
     clearTimeout(rz);
@@ -53,13 +53,13 @@
     mute.setAttribute('aria-label', m ? 'Play music' : 'Mute music');
   });
 
-  // Strip any hash on live site immediately on load
+  // keep the address bar clean on the live site
   const isDev = window.DEV;
   if (!isDev && location.hash) {
     try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
   }
 
-  // Restore last active screen or jump hash so refreshing stays on the current screen during testing
+  // after a refresh, continue where they left off (#scene jumps only work on localhost)
   let jump = isDev ? location.hash.slice(1) : '';
   const isDevJump = Boolean(jump && App.defs[jump] && jump !== 'lock');
 
@@ -86,7 +86,7 @@
     App.go(jump, { force: true });
     if (window.requestWakeLock) window.requestWakeLock();
   } else {
-    // Show lock screen with loading state if assets still loading
+    // show the lock screen, faded until fonts and gsap are ready
     const lockEl = $('#sc-lock');
     if (lockEl) lockEl.classList.add('loading');
     App.go('lock', { force: true, dur: .8 });
@@ -121,7 +121,7 @@
 
   requestAnimationFrame(loop);
 
-  // Warm up fonts and prepare rose in idle time
+  // load fonts and build the rose while idle
   const idle = window.requestIdleCallback || (f => setTimeout(f, 400));
   idle(() => {
     try {

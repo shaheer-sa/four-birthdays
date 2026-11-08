@@ -1,5 +1,5 @@
 'use strict';
-/* ============ 2 · WORD ROSE (port of rose.py) ============ */
+/* ============ 2 · WORD ROSE ============ */
 (() => {
   const D = App.scene('rose', { tone: 'dark' });
   const cv = $('#roseCv'), tip = $('#roseTip');
@@ -217,8 +217,7 @@
     bctx.textAlign = 'center'; bctx.textBaseline = 'middle';
     if (words) for (const w of words) if (w.baked) drawWord(bctx, w, 1, 0);
 
-    // Glowing centre text: each blur level (8..20, the original pulse range) is rendered once on first use
-    // at the exact device scale of the main canvas and cached, so frames never pay for shadowBlur
+    // glowing centre text: each blur level is drawn once and cached
     nameCanvasMin = {}; nameCanvasMax = null;
   }
   function nameGlow(blur) {
@@ -301,7 +300,7 @@
     }
     active = still;
 
-    // her name, glowing at the centre (smooth crossfade between pre-rendered glow passes, 0 per-frame shadowBlur)
+    // centre text with a pulsing glow
     if (t > DUR - .5 && nameW && nameCanvasMin) {
       const q = clamp((t - (DUR - .5)) / 1.6);
       const img = nameGlow(Math.round(14 + 6 * Math.sin(now * .003)));

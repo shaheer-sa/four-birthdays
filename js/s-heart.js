@@ -1,5 +1,5 @@
 'use strict';
-/* ============ 8 · HEART OF LANGUAGES (ports of love_heart.py + love_heart_3d.py) ============ */
+/* ============ 8 · HEART OF LANGUAGES ============ */
 (() => {
   const D = App.scene('heart', { tone: 'dark' });
   const c2 = $('#h2d'), c3 = $('#h3d'), cap = $('#h3cap');
