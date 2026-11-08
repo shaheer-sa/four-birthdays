@@ -2,6 +2,8 @@
 
 An interactive birthday gift website. You edit one file, add your photos, and send the link.
 
+**Live demo:** https://shaheer-sa.github.io/four-birthdays/ (code `142208`)
+
 ![Screens](.github/preview.jpg)
 
 The site is a sequence of ten animated screens: a code lock, a rose made of words, your story in four seasons with your photos, a jar of reasons, birthday candles that can be blown out, a lily bouquet, a letter that writes itself, a heart of languages, and a heart tree with promise coupons at the end. It is designed for phones but works in any modern browser.
@@ -103,7 +105,7 @@ Keep in mind that in a public repository your photos and letter are visible to e
 
 ### 7. Link preview
 
-In `index.html`, replace `https://YOUR-SITE.netlify.app/` in the `og:` and `twitter:` tags with your site address and deploy again. Shared links will then show a preview card. You can also change the `<title>`, `og-image.jpg` (1200x630) and the icons.
+In `index.html`, replace the demo address `https://shaheer-sa.github.io/four-birthdays/` in the `og:` and `twitter:` tags with your own site address and deploy again. Shared links will then show a preview card. You can also change the `<title>`, `og-image.jpg` (1200x630) and the icons.
 
 Before sending the link, open it on your own phone and go through every screen once.
 
